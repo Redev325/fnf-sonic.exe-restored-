@@ -17,15 +17,35 @@ jobs:
         with:
           fetch-depth: 1
           sparse-checkout: |
-            PsychEngine.js
-            soul-tails.png
-            assets/images/icons/icon-soul-tails-custom.png
-          sparse-checkout-cone-mode: false
-      - name: Inspect compiled asset references
+            assets/characters
+            assets/images/icons
+          sparse-checkout-cone-mode: true
+      - name: Find unused compiled icon slots
         run: |
-          echo "icon-tails references:"
-          grep -a -o -m 5 '.\{0,120\}icon-tails.\{0,160\}' PsychEngine.js || true
-          echo "soul-tails references:"
-          grep -a -o -m 5 '.\{0,120\}soul-tails.\{0,160\}' PsychEngine.js || true
-          echo "icon-soul-tails-custom references:"
-          grep -a -o -m 5 '.\{0,120\}icon-soul-tails-custom.\{0,160\}' PsychEngine.js || true
+          python3 - <<'PY'
+          import json, os, re
+          used=set()
+          for root, _, files in os.walk("assets/characters"):
+              for fn in files:
+                  if not fn.lower().endswith(".json"):
+                      continue
+                  try:
+                      with open(os.path.join(root, fn), encoding="utf-8") as f:
+                          data=json.load(f)
+                      h=data.get("healthicon") if isinstance(data,dict) else None
+                      if h:
+                          used.add(h)
+                  except Exception:
+                      pass
+          icons=[]
+          for fn in os.listdir("assets/images/icons"):
+              if fn.lower().endswith(".png"):
+                  base=fn[:-4]
+                  if base.startswith("icon-"):
+                      base=base[5:]
+                  icons.append(base)
+          print("USED HEALTH ICONS:")
+          print(", ".join(sorted(used)))
+          print("UNUSED ICON SLOTS:")
+          print(", ".join(sorted(x for x in icons if x not in used)))
+          PY
