@@ -22,7 +22,7 @@ function syncSoulTailsIcon()
     if dadCharacter ~= lastDadCharacter then
         lastDadCharacter = dadCharacter
         if dadCharacter == 'TailsSoul' then
-            runHaxeCode("game.iconP2.changeIcon('soul-tails-custom');")
+            runHaxeCode("game.iconP2.changeIcon('mechbf');")
         else
             runHaxeCode("game.iconP2.changeIcon(game.dad.healthIcon);")
         end
@@ -32,7 +32,7 @@ function syncSoulTailsIcon()
     if boyfriendCharacter ~= lastBoyfriendCharacter then
         lastBoyfriendCharacter = boyfriendCharacter
         if boyfriendCharacter == 'TailsSoul' then
-            runHaxeCode("game.iconP1.changeIcon('soul-tails-custom');")
+            runHaxeCode("game.iconP1.changeIcon('mechbf');")
         else
             runHaxeCode("game.iconP1.changeIcon(game.boyfriend.healthIcon);")
         end
