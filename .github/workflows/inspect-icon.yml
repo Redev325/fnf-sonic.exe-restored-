@@ -14,6 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            soul-tails.png
+            assets/images/icons/icon-soul-tails-custom.png
+          sparse-checkout-cone-mode: false
       - name: Inspect PNGs
         run: |
           python3 - <<'PY'
