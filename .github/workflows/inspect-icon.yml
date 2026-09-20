@@ -17,18 +17,15 @@ jobs:
         with:
           fetch-depth: 1
           sparse-checkout: |
+            PsychEngine.js
             soul-tails.png
             assets/images/icons/icon-soul-tails-custom.png
           sparse-checkout-cone-mode: false
-      - name: Inspect PNGs
+      - name: Inspect compiled asset references
         run: |
-          python3 - <<'PY'
-          import struct
-          for p in ["soul-tails.png", "assets/images/icons/icon-soul-tails-custom.png"]:
-              with open(p, "rb") as f:
-                  data=f.read(32)
-              w,h=struct.unpack(">II",data[16:24])
-              color_type=data[25]
-              bit_depth=data[24]
-              print(f"{p}: {w}x{h}, bit_depth={bit_depth}, color_type={color_type}, ratio={w/h:.4f}")
-          PY
+          echo "icon-tails references:"
+          grep -a -o -m 5 '.\{0,120\}icon-tails.\{0,160\}' PsychEngine.js || true
+          echo "soul-tails references:"
+          grep -a -o -m 5 '.\{0,120\}soul-tails.\{0,160\}' PsychEngine.js || true
+          echo "icon-soul-tails-custom references:"
+          grep -a -o -m 5 '.\{0,120\}icon-soul-tails-custom.\{0,160\}' PsychEngine.js || true
