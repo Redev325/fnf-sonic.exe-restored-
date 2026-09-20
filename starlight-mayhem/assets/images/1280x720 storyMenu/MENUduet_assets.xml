@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="MENUduet_assets.png">
-	<!-- Created with Adobe Animate version 21.0.7.42652 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="duet idle dance0000" x="3" y="3" width="552" height="801" frameX="0" frameY="0" frameWidth="553" frameHeight="801"/>
-</TextureAtlas>

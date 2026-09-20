@@ -1,8 +1,0 @@
-<TextureAtlas imagePath="BopperNoob.png" width="692" height="752">
-	<SubTexture name="idleL0000" x="232" y="377" width="228" height="371" frameX="-11" frameY="-19" frameWidth="250" frameHeight="400"/>
-	<SubTexture name="idleL0001" x="232" y="1" width="228" height="373" frameX="-11" frameY="-17" frameWidth="250" frameHeight="400"/>
-	<SubTexture name="idleL0002" x="1" y="1" width="228" height="374" frameX="-10" frameY="-16" frameWidth="250" frameHeight="400"/>
-	<SubTexture name="idleR0000" x="463" y="1" width="228" height="370" frameX="-13" frameY="-20" frameWidth="250" frameHeight="400"/>
-	<SubTexture name="idleR0001" x="1" y="378" width="226" height="373" frameX="-14" frameY="-17" frameWidth="250" frameHeight="400"/>
-	<SubTexture name="idleR0002" x="1" y="1" width="228" height="374" frameX="-10" frameY="-16" frameWidth="250" frameHeight="400"/>
-</TextureAtlas>

@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="explosion.png">
-<SubTexture name="explosion boom0000" x="0" y="0" width="1002" height="999" frameX="0" frameY="0" frameWidth="1002" frameHeight="999" />
-<SubTexture name="explosion boom0001" x="1002" y="0" width="1002" height="999" frameX="0" frameY="0" frameWidth="1002" frameHeight="999" />
-<SubTexture name="explosion boom0002" x="2004" y="0" width="756" height="737" frameX="-111" frameY="-147" frameWidth="1002" frameHeight="999" />
-<SubTexture name="explosion boom0003" x="1002" y="999" width="780" height="745" frameX="-95" frameY="-139" frameWidth="1002" frameHeight="999" />
-<SubTexture name="explosion boom0004" x="2004" y="737" width="631" height="483" frameX="-161" frameY="-354" frameWidth="1002" frameHeight="999" />
-<SubTexture name="explosion boom0005" x="0" y="999" width="1002" height="999" frameX="0" frameY="0" frameWidth="1002" frameHeight="999" />
-</TextureAtlas>

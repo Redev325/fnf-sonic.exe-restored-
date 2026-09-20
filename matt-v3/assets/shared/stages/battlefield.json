@@ -1,9 +1,0 @@
-{
-	"directory": "2wiik",
-	"defaultZoom": 0.65,
-	"isPixelStage": false,
-
-	"boyfriend": [1125, 20],
-	"girlfriend": [500, 100],
-	"opponent": [300, 20]
-}

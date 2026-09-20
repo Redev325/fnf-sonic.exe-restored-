@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Warning.png">
-	<!-- Created with Adobe Animate version 22.0.7.214 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Warn instance 10000" x="0" y="0" width="143" height="154"/>
-	<SubTexture name="warn hold end instance 10000" x="143" y="0" width="50" height="65"/>
-	<SubTexture name="warn hold instance 10000" x="143" y="65" width="50" height="44"/>
-</TextureAtlas>

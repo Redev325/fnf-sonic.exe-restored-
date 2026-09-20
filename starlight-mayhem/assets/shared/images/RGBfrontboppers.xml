@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="RGBfrontboppers.png">
-	<!-- Created with Adobe Animate version 21.0.6.41649 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="frontboppers0000" x="3" y="3" width="2566" height="217" frameX="0" frameY="-6" frameWidth="2566" frameHeight="223"/>
-
-</TextureAtlas>

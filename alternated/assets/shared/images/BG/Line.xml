@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Line.png">
-	
-	
-	<SubTexture name="lines 인스턴스 10000" x="0" y="0" width="640" height="360" />
-	<SubTexture name="lines 인스턴스 10001" x="0" y="360" width="640" height="360" />
-</TextureAtlas>

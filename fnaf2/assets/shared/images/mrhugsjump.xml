@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="mrhugsjump.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="idle0000" x="0" y="0" width="691" height="468" pivotX="-1583.4" pivotY="-736" frameX="-9" frameY="-13" frameWidth="713" frameHeight="481"/>
-	<SubTexture name="idle0001" x="691" y="0" width="691" height="468" frameX="0" frameY="-4" frameWidth="713" frameHeight="481"/>
-	<SubTexture name="idle0002" x="0" y="0" width="691" height="468" frameX="-9" frameY="-13" frameWidth="713" frameHeight="481"/>
-	<SubTexture name="idle0003" x="0" y="468" width="691" height="467" frameX="-22" frameY="0" frameWidth="713" frameHeight="481"/>
-</TextureAtlas>

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="phillyfan.png">
-<SubTexture name="phillyfan spin0000" x="686" y="0" width="345" height="344" frameX="-5" frameY="-8" frameWidth="355" frameHeight="355" />
-<SubTexture name="phillyfan spin0001" x="0" y="346" width="345" height="344" frameX="-5" frameY="-8" frameWidth="355" frameHeight="355" />
-<SubTexture name="phillyfan spin0002" x="0" y="0" width="343" height="346" frameX="-6" frameY="-6" frameWidth="355" frameHeight="355" />
-<SubTexture name="phillyfan spin0003" x="343" y="0" width="343" height="346" frameX="-6" frameY="-6" frameWidth="355" frameHeight="355" />
-</TextureAtlas>

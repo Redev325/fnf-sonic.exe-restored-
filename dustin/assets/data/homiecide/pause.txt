@@ -1,3 +1,0 @@
-* PAPYRUS  44  ATK  3 DEF
-* He has been getting EXP.
-* You cannot recognize him. 

@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Fury-Gf.png"><SubTexture name="Fury-Gf idle0000" x="654" y="0" width="327" height="362" frameX="-142" frameY="-94" frameWidth="597" frameHeight="537" />
-<SubTexture name="Fury-Gf idle0001" x="0" y="367" width="327" height="360" frameX="-142" frameY="-95" frameWidth="597" frameHeight="537" />
-<SubTexture name="Fury-Gf idle0002" x="327" y="0" width="327" height="366" frameX="-142" frameY="-89" frameWidth="597" frameHeight="537" />
-<SubTexture name="Fury-Gf idle0003" x="0" y="0" width="327" height="367" frameX="-142" frameY="-88" frameWidth="597" frameHeight="537" />
-</TextureAtlas>

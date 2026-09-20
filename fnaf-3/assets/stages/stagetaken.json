@@ -1,9 +1,0 @@
-{
-	"directory": "weektaken",
-	"defaultZoom": 0.8,
-	"isPixelStage": false,
-
-	"boyfriend": [0, 350],
-	"girlfriend": [-900, 70],
-	"opponent": [-650, 150]
-}

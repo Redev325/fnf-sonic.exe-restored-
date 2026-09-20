@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Menu-Bf.png"><SubTexture name="Menu-Bf idle0000" x="342" y="366.3" width="341.7" height="357.3" frameX="-43.8" frameY="-38.1" frameWidth="388.5" frameHeight="395.4" />
-<SubTexture name="Menu-Bf idle0001" x="0" y="366.3" width="342" height="361.2" frameX="-46.5" frameY="-34.2" frameWidth="388.5" frameHeight="395.4" />
-<SubTexture name="Menu-Bf idle0002" x="677.4" y="0" width="340.8" height="364.5" frameX="-47.7" frameY="-30.9" frameWidth="388.5" frameHeight="395.4" />
-<SubTexture name="Menu-Bf idle0003" x="338.4" y="0" width="339" height="366" frameX="-49.5" frameY="-29.4" frameWidth="388.5" frameHeight="395.4" />
-<SubTexture name="Menu-Bf idle0004" x="0" y="0" width="338.4" height="366.3" frameX="-50.1" frameY="-29.1" frameWidth="388.5" frameHeight="395.4" />
-<SubTexture name="Menu-Bf idle0005" x="0" y="0" width="338.4" height="366.3" frameX="-50.1" frameY="-29.1" frameWidth="388.5" frameHeight="395.4" />
-</TextureAtlas>

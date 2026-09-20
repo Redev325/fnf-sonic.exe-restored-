@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="receiverbgyeeh.png">
-	<!-- Made using Maru Aseprite JSON to XML converter -->
-	<SubTexture name="idle00000" x="0" y="0" width="228" height="137"/>
-	<SubTexture name="idle00001" x="228" y="0" width="228" height="137"/>
-</TextureAtlas>

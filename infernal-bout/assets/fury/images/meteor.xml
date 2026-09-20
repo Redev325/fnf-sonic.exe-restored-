@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="meteor.png"><SubTexture name="meteor idle0000" x="207" y="0" width="207" height="427" frameX="0" frameY="-107" frameWidth="207" frameHeight="534" />
-<SubTexture name="meteor idle0001" x="414" y="0" width="207" height="416" frameX="0" frameY="-118" frameWidth="207" frameHeight="534" />
-<SubTexture name="meteor idle0002" x="0" y="0" width="207" height="451" frameX="0" frameY="-83" frameWidth="207" frameHeight="534" />
-</TextureAtlas>

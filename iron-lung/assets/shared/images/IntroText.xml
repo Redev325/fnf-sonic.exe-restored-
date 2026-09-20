@@ -1,5 +1,0 @@
-<TextureAtlas imagePath="IntroText.png" width="518" height="114">
-	<SubTexture name="Just0000" x="1" y="1" width="516" height="38" frameX="-30" frameY="-80" frameWidth="581" frameHeight="160"/>
-	<SubTexture name="Killin0000" x="1" y="42" width="493" height="39" frameX="-44" frameY="-79" frameWidth="581" frameHeight="160"/>
-	<SubTexture name="Pow0000" x="1" y="84" width="65" height="29" frameX="-266" frameY="-81" frameWidth="581" frameHeight="160"/>
-</TextureAtlas>

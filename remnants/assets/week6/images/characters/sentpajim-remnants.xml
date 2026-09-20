@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TextureAtlas imagePath="sentpajim-remnants.png" width="78" height="117">
-<SubTexture name="sentpajim0000" x="3" y="3" width="72" height="111" frameX="-0" frameY="-0" frameWidth="72" frameHeight="111"/>
-<SubTexture name="sentpajim0001" x="3" y="3" width="72" height="111" frameX="-0" frameY="-0" frameWidth="72" frameHeight="111"/>
-<SubTexture name="sentpajim0002" x="3" y="3" width="72" height="111" frameX="-0" frameY="-0" frameWidth="72" frameHeight="111"/>
-<SubTexture name="sentpajim0003" x="3" y="3" width="72" height="111" frameX="-0" frameY="-0" frameWidth="72" frameHeight="111"/>
-<SubTexture name="sentpajim0004" x="3" y="3" width="72" height="111" frameX="-0" frameY="-0" frameWidth="72" frameHeight="111"/>
-<SubTexture name="sentpajim0005" x="3" y="3" width="72" height="111" frameX="-0" frameY="-0" frameWidth="72" frameHeight="111"/>
-</TextureAtlas>

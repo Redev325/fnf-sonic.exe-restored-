@@ -1,1 +1,0 @@
-Battered:mouse:0xFF1E1E1E

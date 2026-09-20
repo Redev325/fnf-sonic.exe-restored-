@@ -1,9 +1,0 @@
-{
-  "version": "1.0.0",
-  "bgAsset": "freeplay/freeplayBGremnants-pico",
-  "selectorAsset": "freeplay/freeplaySelector/freeplaySelector_pico-remnants",
-  "numbersAsset": "digital_numbers_pico-remnants",
-  "capsuleAsset": "freeplay/capsule/freeplayCapsule_remnants",
-  "capsuleTextColors": ["#000000", "#788894"],
-  "startDelay": 1.45
-}

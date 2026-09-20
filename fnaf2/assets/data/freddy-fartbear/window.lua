@@ -1,3 +1,0 @@
-function onCreate()
-    setPropertyFromClass("openfl.Lib", "application.window.title",'FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART FART ')
-end

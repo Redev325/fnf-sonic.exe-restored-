@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="officespeakers.png"><SubTexture name="officespeakers idle0000" x="0" y="0" width="1199" height="256" frameX="0" frameY="-645" frameWidth="3200" frameHeight="1800" />
-<SubTexture name="officespeakers idle0001" x="0" y="256" width="1189" height="233" frameX="0" frameY="-656" frameWidth="3200" frameHeight="1800" />
-<SubTexture name="officespeakers idle0002" x="0" y="489" width="1186" height="223" frameX="0" frameY="-661" frameWidth="3200" frameHeight="1800" />
-<SubTexture name="officespeakers idle0003" x="0" y="712" width="1182" height="221" frameX="0" frameY="-661" frameWidth="3200" frameHeight="1800" />
-</TextureAtlas>

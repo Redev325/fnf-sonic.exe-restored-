@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="EggFly.png">
-	<!-- Created with Adobe Animate version 18.0.0.107 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Eggman0000" x="0" y="0" width="77" height="50"/>
-	<SubTexture name="Eggman0001" x="0" y="0" width="77" height="50"/>
-	<SubTexture name="Eggman0002" x="0" y="50" width="77" height="50"/>
-	<SubTexture name="Eggman0003" x="0" y="50" width="77" height="50"/>
-</TextureAtlas>

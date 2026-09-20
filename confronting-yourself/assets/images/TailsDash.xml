@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="TailsDash.png">
-	<!-- Created with Adobe Animate version 18.0.0.107 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="TailsDash0000" x="0" y="0" width="35" height="32"/>
-	<SubTexture name="TailsDash0001" x="0" y="32" width="35" height="32"/>
-</TextureAtlas>

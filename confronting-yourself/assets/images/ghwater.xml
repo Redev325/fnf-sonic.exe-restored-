@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="ghwater.png">
-<SubTexture name="ghwater0003" x="0" y="0" width="3842" height="106" frameX="0" frameY="0" frameWidth="3840" frameHeight="104" />
-<SubTexture name="ghwater0002" x="0" y="106" width="3842" height="106" frameX="0" frameY="0" frameWidth="3840" frameHeight="104" />
-<SubTexture name="ghwater0001" x="0" y="212" width="3842" height="106" frameX="0" frameY="0" frameWidth="3840" frameHeight="104" />
-<SubTexture name="ghwater0000" x="0" y="318" width="3842" height="106" frameX="0" frameY="0" frameWidth="3840" frameHeight="104" />
-</TextureAtlas>

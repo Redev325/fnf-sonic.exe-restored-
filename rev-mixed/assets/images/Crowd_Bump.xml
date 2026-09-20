@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Crowd Bump.png">
-<SubTexture name="Crowd Bump CrowedDance0000" x="0" y="420" width="2506" height="414" frameX="-204" frameY="-107" frameWidth="3000" frameHeight="1500" />
-<SubTexture name="Crowd Bump CrowedDance0001" x="2491" y="0" width="2496" height="418" frameX="-209" frameY="-102" frameWidth="3000" frameHeight="1500" />
-<SubTexture name="Crowd Bump CrowedDance0002" x="0" y="0" width="2491" height="420" frameX="-212" frameY="-99" frameWidth="3000" frameHeight="1500" />
-</TextureAtlas>

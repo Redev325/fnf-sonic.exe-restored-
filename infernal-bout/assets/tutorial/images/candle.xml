@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="candle.png"><SubTexture name="candle idle0000" x="0" y="0" width="1729" height="65" frameX="-646" frameY="-637" frameWidth="2513" frameHeight="1350" />
-<SubTexture name="candle idle0001" x="0" y="65" width="1718" height="61" frameX="-651" frameY="-632" frameWidth="2513" frameHeight="1350" />
-<SubTexture name="candle idle0002" x="0" y="126" width="1712" height="59" frameX="-655" frameY="-634" frameWidth="2513" frameHeight="1350" />
-<SubTexture name="candle idle0003" x="0" y="185" width="1711" height="50" frameX="-654" frameY="-643" frameWidth="2513" frameHeight="1350" />
-</TextureAtlas>

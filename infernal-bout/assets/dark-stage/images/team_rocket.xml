@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="team_rocket.png"><SubTexture name="team_rocket idle0000" x="0" y="0" width="212" height="214" frameX="-854" frameY="-433" frameWidth="1920" frameHeight="1080" />
-<SubTexture name="team_rocket idle0001" x="212" y="0" width="108" height="110" frameX="-906" frameY="-485" frameWidth="1920" frameHeight="1080" />
-<SubTexture name="team_rocket idle0002" x="212" y="110" width="87" height="86" frameX="-917" frameY="-497" frameWidth="1920" frameHeight="1080" />
-<SubTexture name="team_rocket idle0003" x="0" y="214" width="61" height="60" frameX="-930" frameY="-510" frameWidth="1920" frameHeight="1080" />
-<SubTexture name="team_rocket idle0004" x="299" y="110" width="4" height="4" frameX="-958" frameY="-538" frameWidth="1920" frameHeight="1080" />
-<SubTexture name="team_rocket idle0005" x="299" y="110" width="4" height="4" frameX="-958" frameY="-538" frameWidth="1920" frameHeight="1080" />
-</TextureAtlas>

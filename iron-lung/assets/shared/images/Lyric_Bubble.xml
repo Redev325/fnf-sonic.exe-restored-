@@ -1,7 +1,0 @@
-<TextureAtlas imagePath="Lyric_Bubble.png" width="416" height="242">
-	<SubTexture name="Open0000" x="164" y="142" width="9" height="63" frameX="-193" frameY="-99" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Open0001" x="164" y="142" width="9" height="63" frameX="-193" frameY="-99" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Open0002" x="1" y="142" width="160" height="99" frameX="-116" frameY="-47" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Open0003" x="1" y="1" width="414" height="138" frameX="-0" frameY="-0" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Static0000" x="1" y="1" width="414" height="138" frameX="-0" frameY="-0" frameWidth="414" frameHeight="238"/>
-</TextureAtlas>

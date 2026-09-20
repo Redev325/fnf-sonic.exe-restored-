@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="TailsWalk.png">
-<SubTexture name="TailsWalk0000" x="0" y="42" width="47" height="41" frameX="0" frameY="-1" frameWidth="38" frameHeight="33" />
-<SubTexture name="TailsWalk0001" x="0" y="0" width="45" height="42" frameX="0" frameY="-1" frameWidth="38" frameHeight="33" />
-<SubTexture name="TailsWalk0002" x="90" y="41" width="43" height="40" frameX="-2" frameY="-3" frameWidth="38" frameHeight="33" />
-<SubTexture name="TailsWalk0003" x="90" y="0" width="48" height="41" frameX="0" frameY="-1" frameWidth="38" frameHeight="33" />
-<SubTexture name="TailsWalk0004" x="45" y="0" width="45" height="42" frameX="0" frameY="-1" frameWidth="38" frameHeight="33" />
-<SubTexture name="TailsWalk0005" x="47" y="42" width="43" height="40" frameX="-2" frameY="-3" frameWidth="38" frameHeight="33" />
-</TextureAtlas>

@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="moon dialogue.png"><SubTexture name="moon dialogue seem0000" x="3332" y="1532" width="1686" height="1521" frameX="-189" frameY="-112" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moon dialogue seem0001" x="0" y="3138" width="1686" height="1519" frameX="-189" frameY="-120" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moon dialogue seem0002" x="3332" y="0" width="1686" height="1532" frameX="-189" frameY="-137" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moon dialogue believe0000" x="0" y="1574" width="1666" height="1564" frameX="-189" frameY="-124" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moon dialogue believe0001" x="1666" y="0" width="1666" height="1567" frameX="-189" frameY="-127" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moon dialogue believe0002" x="0" y="0" width="1666" height="1574" frameX="-188" frameY="-132" frameWidth="1920" frameHeight="1920" />
-</TextureAtlas>

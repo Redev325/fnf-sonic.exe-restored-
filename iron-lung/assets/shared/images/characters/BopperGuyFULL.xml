@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="BopperGuyFULL.png">
-<SubTexture name="guy idle0000" x="0" y="0" width="376" height="789" frameX="-12" frameY="-8" frameWidth="400" frameHeight="800" />
-<SubTexture name="guy idle0001" x="1521" y="0" width="385" height="769" frameX="-8" frameY="-28" frameWidth="400" frameHeight="800" />
-<SubTexture name="guy idle0002" x="757" y="0" width="383" height="779" frameX="-10" frameY="-18" frameWidth="400" frameHeight="800" />
-<SubTexture name="guy idle0003" x="1140" y="0" width="381" height="776" frameX="-11" frameY="-21" frameWidth="400" frameHeight="800" />
-<SubTexture name="guy idle0004" x="376" y="0" width="381" height="785" frameX="-9" frameY="-12" frameWidth="400" frameHeight="800" />
-</TextureAtlas>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="mario_transform.png">
-	<!-- Created with Adobe Animate version 20.0.3.25487 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="mario transform0000" x="50" y="50" width="741" height="718"/>
-	<SubTexture name="mario transform0001" x="841" y="50" width="741" height="718"/>
-	<SubTexture name="mario transform0002" x="50" y="818" width="741" height="718"/>
-	<SubTexture name="mario transform0003" x="841" y="818" width="741" height="718"/>
-</TextureAtlas>

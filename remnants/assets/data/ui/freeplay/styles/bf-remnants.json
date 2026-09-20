@@ -1,9 +1,0 @@
-{
-  "version": "1.0.0",
-  "bgAsset": "freeplay/freeplayBGremnants",
-  "selectorAsset": "freeplay/freeplaySelector/freeplaySelector_bf-remnants",
-  "numbersAsset": "digital_numbers_bf-remnants",
-  "capsuleAsset": "freeplay/capsule/freeplayCapsule_remnants",
-  "capsuleTextColors": ["#000000", "#788894"],
-  "startDelay": 1.0
-}

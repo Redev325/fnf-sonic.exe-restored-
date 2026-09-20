@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="koopa.png">
-<SubTexture name="koopa fly0000" x="0" y="0" width="538" height="619" frameX="-247" frameY="-191" frameWidth="1002" frameHeight="999" />
-<SubTexture name="koopa fly0001" x="538" y="0" width="564" height="548" frameX="-221" frameY="-278" frameWidth="1002" frameHeight="999" />
-</TextureAtlas>

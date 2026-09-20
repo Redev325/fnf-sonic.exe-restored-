@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="tornado.png">
-<SubTexture name="NYOOOM0000" x="0" y="0" width="132" height="76" frameX="0" frameY="0" frameWidth="120" frameHeight="64" />
-<SubTexture name="NYOOOM0001" x="132" y="0" width="132" height="76" frameX="0" frameY="0" frameWidth="120" frameHeight="64" />
-<SubTexture name="NYOOOM0002" x="0" y="76" width="132" height="76" frameX="0" frameY="0" frameWidth="120" frameHeight="64" />
-<SubTexture name="NYOOOM0003" x="132" y="76" width="132" height="76" frameX="0" frameY="0" frameWidth="120" frameHeight="64" />
-</TextureAtlas>

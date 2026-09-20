@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Bad_note.png">
-<SubTexture name="Bad_note idle0000" x="0" y="0" width="191" height="322" frameX="-7" frameY="-3" frameWidth="211" frameHeight="333" />
-</TextureAtlas>

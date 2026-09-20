@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="scientistmad.png"><SubTexture name="scientistmad idle0000" x="0" y="0" width="2116" height="1722" frameX="-541" frameY="-78" frameWidth="3200" frameHeight="1800" />
-<SubTexture name="scientistmad idle0001" x="2116" y="0" width="2113" height="1722" frameX="-544" frameY="-78" frameWidth="3200" frameHeight="1800" />
-<SubTexture name="scientistmad idle0002" x="0" y="1722" width="2114" height="1722" frameX="-543" frameY="-78" frameWidth="3200" frameHeight="1800" />
-<SubTexture name="scientistmad idle0003" x="4229" y="0" width="2116" height="1722" frameX="-541" frameY="-78" frameWidth="3200" frameHeight="1800" />
-</TextureAtlas>

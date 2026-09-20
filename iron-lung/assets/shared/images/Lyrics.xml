@@ -1,8 +1,0 @@
-<TextureAtlas imagePath="Lyrics.png" width="464" height="279">
-	<SubTexture name="Serve0000" x="1" y="1" width="259" height="71" frameX="-73" frameY="-17" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Wicked0000" x="1" y="75" width="255" height="27" frameX="-72" frameY="-40" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Life0000" x="1" y="208" width="224" height="70" frameX="-92" frameY="-17" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Play0000" x="1" y="105" width="244" height="27" frameX="-72" frameY="-39" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Ragh0000" x="263" y="1" width="200" height="26" frameX="-102" frameY="-41" frameWidth="414" frameHeight="238"/>
-	<SubTexture name="Ring0000" x="1" y="135" width="226" height="70" frameX="-90" frameY="-18" frameWidth="414" frameHeight="238"/>
-</TextureAtlas>

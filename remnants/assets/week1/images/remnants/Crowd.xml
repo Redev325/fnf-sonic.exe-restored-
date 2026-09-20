@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Crowd.png">
-<SubTexture name="Cheering0000" x="0" y="573" width="2660" height="276" frameX="0" frameY="-1168" frameWidth="2660" frameHeight="1440" />
-<SubTexture name="Cheering0001" x="0" y="849" width="2660" height="276" frameX="0" frameY="-1168" frameWidth="2660" frameHeight="1440" />
-<SubTexture name="Cheering0002" x="0" y="292" width="2660" height="281" frameX="0" frameY="-1163" frameWidth="2660" frameHeight="1440" />
-<SubTexture name="Cheering0003" x="0" y="0" width="2660" height="292" frameX="0" frameY="-1152" frameWidth="2660" frameHeight="1440" />
-</TextureAtlas>

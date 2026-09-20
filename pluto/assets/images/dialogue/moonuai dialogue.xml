@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="moonuai dialogue.png"><SubTexture name="moonuai dialogue prepare0000" x="0" y="0" width="1572" height="1745" frameX="-233" frameY="-154" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moonuai dialogue prepare0001" x="1572" y="0" width="1572" height="1741" frameX="-217" frameY="-156" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moonuai dialogue rise0000" x="3144" y="0" width="1786" height="1456" frameX="-95" frameY="-27" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moonuai dialogue rise0001" x="0" y="1745" width="1785" height="1453" frameX="-97" frameY="-36" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="moonuai dialogue rise0002" x="1785" y="1745" width="1780" height="1431" frameX="-100" frameY="-83" frameWidth="1920" frameHeight="1920" />
-</TextureAtlas>

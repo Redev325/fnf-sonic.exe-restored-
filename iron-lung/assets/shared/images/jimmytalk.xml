@@ -1,4 +1,0 @@
-<TextureAtlas imagePath="jimmytalk.png" width="1046" height="633">
-	<SubTexture name="jimmytalk shut0000" x="526" y="1" width="519" height="601" frameX="-383" frameY="-92" frameWidth="1280" frameHeight="720"/>
-	<SubTexture name="jimmytalk talk0000" x="1" y="1" width="522" height="631" frameX="-379" frameY="-66" frameWidth="1280" frameHeight="720"/>
-</TextureAtlas>

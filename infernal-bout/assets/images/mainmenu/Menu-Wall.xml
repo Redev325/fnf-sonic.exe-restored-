@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Menu-Wall.png">
-<SubTexture name="credits basic" x="0" y="0" width="612" height="609" frameX="0" frameY="-5.4" frameWidth="630" frameHeight="614.4" />
-<SubTexture name="freeplay basic" x="612" y="0" width="612" height="609" frameX="0" frameY="-5.4" frameWidth="630" frameHeight="614.4" />
-<SubTexture name="options basic" x="0" y="609" width="612" height="609" frameX="0" frameY="-5.4" frameWidth="630" frameHeight="614.4" />
-<SubTexture name="story_mode basic" x="612" y="609" width="612" height="609" frameX="0" frameY="-5.4" frameWidth="630" frameHeight="614.4" />
-</TextureAtlas>

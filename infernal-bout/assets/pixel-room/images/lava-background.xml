@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="lava-background.png"><SubTexture name="lavabg idle0000" x="0" y="0" width="320" height="51" frameX="0" frameY="-129" frameWidth="320" frameHeight="180" />
-<SubTexture name="lavabg idle0001" x="0" y="102" width="320" height="50" frameX="0" frameY="-130" frameWidth="320" frameHeight="180" />
-<SubTexture name="lavabg idle0002" x="0" y="152" width="320" height="50" frameX="0" frameY="-130" frameWidth="320" frameHeight="180" />
-<SubTexture name="lavabg idle0003" x="0" y="51" width="320" height="51" frameX="0" frameY="-129" frameWidth="320" frameHeight="180" />
-<SubTexture name="lavabg idle0004" x="0" y="152" width="320" height="50" frameX="0" frameY="-130" frameWidth="320" frameHeight="180" />
-<SubTexture name="lavabg idle0005" x="0" y="102" width="320" height="50" frameX="0" frameY="-130" frameWidth="320" frameHeight="180" />
-</TextureAtlas>

@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Lazyworkteam.png">
-<SubTexture name="presents0000" x="894" y="0" width="905" height="715" frameX="-216" frameY="-3" frameWidth="1280" frameHeight="720" />
-<SubTexture name="presents0001" x="0" y="0" width="894" height="717" frameX="-216" frameY="-3" frameWidth="1280" frameHeight="720" />
-</TextureAtlas>

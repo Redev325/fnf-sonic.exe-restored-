@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="white3.png">
-<SubTexture name="white3 idle0000" x="0" y="538" width="479" height="269" frameX="0" frameY="0" frameWidth="479" frameHeight="269" />
-<SubTexture name="white3 idle0001" x="0" y="0" width="479" height="269" frameX="0" frameY="0" frameWidth="479" frameHeight="269" />
-<SubTexture name="white3 idle0002" x="479" y="0" width="479" height="269" frameX="0" frameY="0" frameWidth="479" frameHeight="269" />
-<SubTexture name="white3 idle0003" x="0" y="269" width="479" height="269" frameX="0" frameY="0" frameWidth="479" frameHeight="269" />
-<SubTexture name="white3 idle0004" x="479" y="269" width="479" height="269" frameX="0" frameY="0" frameWidth="479" frameHeight="269" />
-</TextureAtlas>

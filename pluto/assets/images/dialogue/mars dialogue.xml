@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="mars dialogue.png"><SubTexture name="mars dialogue neutral0000" x="0" y="0" width="1379" height="1216" frameX="-460" frameY="-581" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="mars dialogue neutral0001" x="1379" y="0" width="1378" height="1202" frameX="-460" frameY="-589" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="mars dialogue neutral0002" x="0" y="1216" width="1377" height="1170" frameX="-458" frameY="-607" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="mars dialogue boast0000" x="2757" y="0" width="1760" height="1161" frameX="-132" frameY="-600" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="mars dialogue boast0001" x="2757" y="1161" width="1748" height="1161" frameX="-136" frameY="-601" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="mars dialogue boast0002" x="0" y="2386" width="1703" height="1156" frameX="-153" frameY="-606" frameWidth="1920" frameHeight="1920" />
-</TextureAtlas>

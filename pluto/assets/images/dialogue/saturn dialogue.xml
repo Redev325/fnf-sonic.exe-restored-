@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="saturn dialogue.png"><SubTexture name="saturn dialogue neutral0000" x="0" y="804" width="1152" height="803" frameX="-384" frameY="-485" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="saturn dialogue neutral0001" x="1152" y="804" width="1152" height="801" frameX="-384" frameY="-489" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="saturn dialogue neutral0002" x="2304" y="796" width="1152" height="793" frameX="-384" frameY="-502" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="saturn dialogue happy0000" x="0" y="0" width="1152" height="804" frameX="-384" frameY="-485" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="saturn dialogue happy0001" x="1152" y="0" width="1152" height="804" frameX="-384" frameY="-489" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="saturn dialogue happy0002" x="2304" y="0" width="1152" height="796" frameX="-384" frameY="-502" frameWidth="1920" frameHeight="1920" />
-</TextureAtlas>

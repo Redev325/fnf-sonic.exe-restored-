@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="phillyCars-remnants.png">
-	<!-- Created with Adobe Animate version 22.0.8.217 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="car10000" x="2" y="2" width="438" height="197"/>
-	<SubTexture name="car20000" x="442" y="2" width="470" height="175"/>
-	<SubTexture name="car30000" x="2" y="201" width="463" height="237"/>
-	<SubTexture name="car40000" x="467" y="201" width="443" height="247"/>
-</TextureAtlas>

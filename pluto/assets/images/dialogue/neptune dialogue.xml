@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="neptune dialogue.png"><SubTexture name="neptune dialogue insult0000" x="944" y="547" width="944" height="382" frameX="-671" frameY="-345" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="neptune dialogue insult0001" x="0" y="1086" width="944" height="382" frameX="-671" frameY="-347" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="neptune dialogue insult0002" x="944" y="1086" width="944" height="382" frameX="-672" frameY="-350" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="neptune dialogue vsauce0000" x="0" y="0" width="944" height="547" frameX="-672" frameY="-347" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="neptune dialogue vsauce0001" x="944" y="0" width="944" height="545" frameX="-672" frameY="-349" frameWidth="1920" frameHeight="1920" />
-<SubTexture name="neptune dialogue vsauce0002" x="0" y="547" width="944" height="539" frameX="-672" frameY="-353" frameWidth="1920" frameHeight="1920" />
-</TextureAtlas>

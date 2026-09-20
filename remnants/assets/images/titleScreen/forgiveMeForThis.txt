@@ -1,3 +1,0 @@
-Turns out that the https://github.com/RemnantsCrew/FunkinRemnants-Private/issues/2
-issue fix was to clone the stage assets and put them here because "purgeCache()"
-hates when we call assets on modules from other libraries...

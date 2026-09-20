@@ -1,9 +1,0 @@
-{
-	"directory": "weekwaffle",
-	"defaultZoom": 1.1,
-	"isPixelStage": false,
-
-	"boyfriend": [400, 450],
-	"girlfriend": [400, 450],
-	"opponent": [800, 450]
-}

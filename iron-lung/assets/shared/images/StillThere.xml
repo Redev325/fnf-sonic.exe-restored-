@@ -1,6 +1,0 @@
-<TextureAtlas imagePath="StillThere.png" width="1398" height="2521">
-	<SubTexture name="Are0000" x="1" y="636" width="1391" height="626" frameX="-86" frameY="-8" frameWidth="1558" frameHeight="930"/>
-	<SubTexture name="Still0000" x="1" y="1265" width="1391" height="626" frameX="-86" frameY="-8" frameWidth="1558" frameHeight="930"/>
-	<SubTexture name="There0000" x="1" y="1" width="1396" height="632" frameX="-86" frameY="-8" frameWidth="1558" frameHeight="930"/>
-	<SubTexture name="U0000" x="1" y="1894" width="1391" height="626" frameX="-86" frameY="-8" frameWidth="1558" frameHeight="930"/>
-</TextureAtlas>

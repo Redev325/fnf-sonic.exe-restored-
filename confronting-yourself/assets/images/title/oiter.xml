@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="oiter.png">
-<SubTexture name="oiter0000" x="0" y="0" width="1028" height="148" frameX="0" frameY="0" frameWidth="1024" frameHeight="144" />
-<SubTexture name="oiter0001" x="0" y="148" width="1028" height="148" frameX="0" frameY="0" frameWidth="1024" frameHeight="144" />
-<SubTexture name="oiter0002" x="0" y="296" width="1028" height="148" frameX="0" frameY="0" frameWidth="1024" frameHeight="144" />
-<SubTexture name="oiter0003" x="0" y="444" width="1028" height="148" frameX="0" frameY="0" frameWidth="1024" frameHeight="144" />
-</TextureAtlas>

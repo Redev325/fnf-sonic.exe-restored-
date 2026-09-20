@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="rain.png">
-<SubTexture name="britishweather0000" x="0" y="0" width="351" height="208" frameX="0" frameY="0" frameWidth="340" frameHeight="196" />
-<SubTexture name="britishweather0001" x="351" y="0" width="351" height="208" frameX="-1" frameY="0" frameWidth="340" frameHeight="196" />
-<SubTexture name="britishweather0002" x="0" y="208" width="352" height="208" frameX="0" frameY="0" frameWidth="340" frameHeight="196" />
-<SubTexture name="britishweather0003" x="0" y="416" width="352" height="207" frameX="0" frameY="0" frameWidth="340" frameHeight="196" />
-</TextureAtlas>

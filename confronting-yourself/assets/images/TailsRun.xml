@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="TailsRun.png">
-	<SubTexture name="TailsRun0000" x="0" y="0" width="35" height="32" frameX="0" frameY="0" frameWidth="26" frameHeight="37" />
-	<SubTexture name="TailsRun0001" x="0" y="32" width="35" height="32" frameX="0" frameY="1" frameWidth="26" frameHeight="37" />
-</TextureAtlas>
