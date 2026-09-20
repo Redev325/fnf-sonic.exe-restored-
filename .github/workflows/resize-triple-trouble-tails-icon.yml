@@ -1,0 +1,68 @@
+name: Resize Triple Trouble Tails Icon
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  resize-icon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Resize icon only when the oversized 450x150 sheet is present
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SRC="assets/images/icons/icon-mechbf.png"
+
+          if ! command -v convert >/dev/null 2>&1; then
+            echo "ImageMagick convert is unavailable."
+            exit 1
+          fi
+
+          SIZE="$(identify -format '%wx%h' "$SRC")"
+          echo "Current icon size: $SIZE"
+
+          if [ "$SIZE" != "450x150" ]; then
+            echo "Icon is already in the corrected format; nothing to do."
+            exit 0
+          fi
+
+          mkdir -p /tmp/tails-icon
+
+          # The current 450x150 source contains the two faces at these bounds.
+          convert "$SRC" -crop 190x148+7+0 +repage /tmp/tails-icon/left.png
+          convert "$SRC" -crop 161x145+278+2 +repage /tmp/tails-icon/right.png
+
+          # Shrink the visible artwork while keeping each HealthIcon frame 150x150.
+          convert /tmp/tails-icon/left.png \
+            -resize '125x125>' -gravity center -background none -extent 150x150 \
+            /tmp/tails-icon/left-frame.png
+
+          convert /tmp/tails-icon/right.png \
+            -resize '125x125>' -gravity center -background none -extent 150x150 \
+            /tmp/tails-icon/right-frame.png
+
+          # Build the proper 2-frame 300x150 sheet.
+          convert -size 300x150 xc:none /tmp/tails-icon/out.png
+          convert /tmp/tails-icon/out.png /tmp/tails-icon/left-frame.png \
+            -geometry +0+0 -compose over -composite /tmp/tails-icon/out-left.png
+          convert /tmp/tails-icon/out-left.png /tmp/tails-icon/right-frame.png \
+            -geometry +150+0 -compose over -composite "$SRC"
+
+          # Keep the source copy in sync with the runtime icon.
+          cp "$SRC" soul-tails.png
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "$SRC" soul-tails.png
+          git rm .github/workflows/resize-triple-trouble-tails-icon.yml
+          git commit -m "Reduce Triple Trouble Tails icon size"
+          git push
