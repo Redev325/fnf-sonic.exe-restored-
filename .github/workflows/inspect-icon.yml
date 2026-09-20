@@ -1,0 +1,25 @@
+name: Inspect Soul Tails Icon
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Inspect PNGs
+        run: |
+          python3 - <<'PY'
+          import struct
+          for p in ["soul-tails.png", "assets/images/icons/icon-soul-tails-custom.png"]:
+              with open(p, "rb") as f:
+                  data=f.read(32)
+              w,h=struct.unpack(">II",data[16:24])
+              color_type=data[25]
+              bit_depth=data[24]
+              print(f"{p}: {w}x{h}, bit_depth={bit_depth}, color_type={color_type}, ratio={w/h:.4f}")
+          PY
