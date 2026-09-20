@@ -6,10 +6,10 @@
 local centerX = {nil, nil, nil, nil}
 local centerY = {nil, nil, nil, nil}
 local saved = false
+local lastDadCharacter = nil
+local lastBoyfriendCharacter = nil
 
 function onCountdownStarted()
-    -- Psych Engine exposes the final default player strum positions here.
-    -- These are the positions generated from the player's Middle Scroll setting.
     for i = 0, 3 do
         centerX[i + 1] = getPropertyFromGroup('playerStrums', i, 'x')
         centerY[i + 1] = getPropertyFromGroup('playerStrums', i, 'y')
@@ -17,24 +17,37 @@ function onCountdownStarted()
     saved = true
 end
 
-function onUpdate()
-    if not middlescroll or not saved then
-        return
+function syncSoulTailsIcon()
+    local dadCharacter = getProperty('dad.curCharacter')
+    if dadCharacter ~= lastDadCharacter then
+        lastDadCharacter = dadCharacter
+        if dadCharacter == 'TailsSoul' then
+            runHaxeCode("game.iconP2.changeIcon('soul-tails-custom');")
+        else
+            runHaxeCode("game.iconP2.changeIcon(game.dad.healthIcon);")
+        end
     end
 
-    -- Keep the player's receptors/notes on the centered Middle Scroll line.
-    for i = 0, 3 do
-        setPropertyFromGroup('playerStrums', i, 'x', centerX[i + 1])
-        setPropertyFromGroup('playerStrums', i, 'y', centerY[i + 1])
-        setPropertyFromGroup('playerStrums', i, 'visible', true)
-
-        -- Hide the opponent receptors only while the player's setting
-        -- has Middle Scroll enabled.
-        setPropertyFromGroup('opponentStrums', i, 'visible', false)
+    local boyfriendCharacter = getProperty('boyfriend.curCharacter')
+    if boyfriendCharacter ~= lastBoyfriendCharacter then
+        lastBoyfriendCharacter = boyfriendCharacter
+        if boyfriendCharacter == 'TailsSoul' then
+            runHaxeCode("game.iconP1.changeIcon('soul-tails-custom');")
+        else
+            runHaxeCode("game.iconP1.changeIcon(game.boyfriend.healthIcon);")
+        end
     end
 end
 
-function onDestroy()
-    -- Do not change the saved Middle Scroll preference.
-    -- With Middle Scroll OFF, this script never changes strum placement.
+function onUpdate()
+    if middlescroll and saved then
+        for i = 0, 3 do
+            setPropertyFromGroup('playerStrums', i, 'x', centerX[i + 1])
+            setPropertyFromGroup('playerStrums', i, 'y', centerY[i + 1])
+            setPropertyFromGroup('playerStrums', i, 'visible', true)
+            setPropertyFromGroup('opponentStrums', i, 'visible', false)
+        end
+    end
+
+    syncSoulTailsIcon()
 end
