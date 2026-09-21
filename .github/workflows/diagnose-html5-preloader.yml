@@ -71,27 +71,35 @@ jobs:
             });
 
             await page.goto('http://127.0.0.1:8123/', {waitUntil: 'domcontentloaded'});
-            await page.waitForTimeout(30000);
+
+            const snapshots = [];
+            const takeSnapshot = async (label) => {
+              const info = await page.evaluate(() => {
+                const canvas = document.querySelector('canvas');
+                if (!canvas) return {exists: false};
+                let dataUrlLength = 0;
+                try { dataUrlLength = canvas.toDataURL('image/png').length; } catch (_) {}
+                return {
+                  exists: true,
+                  width: canvas.width,
+                  height: canvas.height,
+                  dataUrlLength,
+                  canvasCount: document.querySelectorAll('canvas').length
+                };
+              });
+              snapshots.push({label, ...info});
+            };
+
+            await takeSnapshot('0s');
+            await page.waitForTimeout(10000);
+            await takeSnapshot('10s');
+            await page.waitForTimeout(10000);
+            await takeSnapshot('20s');
+            await page.waitForTimeout(10000);
+            await takeSnapshot('30s');
 
             const body = await page.locator('body').innerText().catch(() => '');
             const source = await page.locator('html').evaluate(el => el.outerHTML.slice(0, 2000));
-            const canvasInfo = await page.evaluate(() => {
-              const canvas = document.querySelector('canvas');
-              if (!canvas) return {exists: false};
-              let sample = null;
-              try {
-                const ctx = canvas.getContext('2d', {willReadFrequently: true});
-                if (ctx) {
-                  const w = canvas.width, h = canvas.height;
-                  const ys = [Math.max(0, h - 30), Math.floor(h / 2), Math.min(h - 1, 350)];
-                  sample = ys.map(y => {
-                    const x = Math.floor(w / 2);
-                    return Array.from(ctx.getImageData(Math.max(0, x - 10), y, 20, 1).data);
-                  });
-                }
-              } catch (_) {}
-              return {exists: true, width: canvas.width, height: canvas.height, sample};
-            });
             const resourceSummary = await page.evaluate(() => performance.getEntriesByType('resource')
               .map(e => ({name: e.name, duration: Math.round(e.duration), size: e.transferSize || 0}))
               .filter(e => e.duration > 1000 || e.size === 0)
@@ -105,9 +113,8 @@ jobs:
               warnings,
               logs,
               failedRequests: failed,
-              canvasInfo,
+              snapshots,
               resourceSummary,
-              progressText: progress,
               sourcePreview: source
             }, null, 2));
 
