@@ -1,0 +1,90 @@
+name: Fix combo number blue gradient
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'Fix combo number blue gradient')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Restore originals and make gradient fill
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import subprocess, io
+
+          folder = Path("assets/images")
+
+          TOP = (115, 220, 255)
+          MID = (45, 145, 255)
+          BOTTOM = (20, 65, 190)
+          OUTLINE = (9, 20, 70)
+
+          def lerp(a, b, t):
+              return tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
+
+          for path in sorted(folder.glob("num[0-9].png")):
+              raw = subprocess.check_output([
+                  "git", "show",
+                  "d067040518f3d7a07ef79208ddf0161d988bd417:" + str(path)
+              ])
+              img = Image.open(io.BytesIO(raw)).convert("RGBA")
+              px = img.load()
+              h = max(1, img.height - 1)
+
+              for y in range(img.height):
+                  t = y / h
+                  if t < 0.5:
+                      fill = lerp(TOP, MID, t * 2)
+                  else:
+                      fill = lerp(MID, BOTTOM, (t - 0.5) * 2)
+
+                  for x in range(img.width):
+                      r, g, b, a = px[x, y]
+                      if not a:
+                          continue
+
+                      lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+                      # Bright source pixels are the number face.
+                      # Dark source pixels remain the dark outline.
+                      if lum >= 180:
+                          nrgb = fill
+                      elif lum <= 55:
+                          nrgb = OUTLINE
+                      else:
+                          t2 = (lum - 55) / 125
+                          nrgb = tuple(round(OUTLINE[i] * (1 - t2) + fill[i] * t2) for i in range(3))
+
+                      px[x, y] = (*nrgb, a)
+
+              img.save(path, optimize=True)
+
+          print("Fixed:", ", ".join(p.name for p in sorted(folder.glob("num[0-9].png"))))
+          PY
+
+      - name: Commit corrected sprites
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/num[0-9].png
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Fix combo number blue gradient"
+          git push
