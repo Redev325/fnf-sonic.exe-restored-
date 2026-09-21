@@ -1,0 +1,90 @@
+name: Recolor judgment ratings
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".recolor-judgements-trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  recolor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install Pillow
+        run: python3 -m pip install --disable-pip-version-check Pillow
+
+      - name: Recolor judgment images
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          ROOT = Path("assets/shared/images")
+
+          # Light -> deep colors, with the original pixel luminance preserved
+          # so outlines and existing shading remain visible.
+          PALETTES = {
+              "sick.png": ((145, 220, 255), (0, 70, 220), (8, 35, 90)),
+              "good.png": ((255, 250, 120), (225, 170, 0), (105, 65, 0)),
+              "bad.png": ((255, 110, 110), (210, 0, 0), (95, 0, 0)),
+              "shit.png": ((175, 55, 55), (110, 0, 0), (45, 0, 0)),
+          }
+
+          def lerp(a, b, t):
+              return int(round(a + (b - a) * t))
+
+          for name, (top, bottom, outline) in PALETTES.items():
+              path = ROOT / name
+              if not path.exists():
+                  raise FileNotFoundError(path)
+
+              im = Image.open(path).convert("RGBA")
+              px = im.load()
+              w, h = im.size
+
+              for y in range(h):
+                  gy = 0 if h <= 1 else y / (h - 1)
+                  for x in range(w):
+                      r, g, b, a = px[x, y]
+                      if a == 0:
+                          continue
+
+                      lum = (0.2126*r + 0.7152*g + 0.0722*b) / 255.0
+
+                      # Very dark pixels become the palette's dark outline.
+                      # Brighter pixels receive the vertical gradient.
+                      if lum < 0.18:
+                          target = outline
+                      else:
+                          t = gy
+                          target = tuple(lerp(top[i], bottom[i], t) for i in range(3))
+                          # Keep original highlights/shadows instead of flattening them.
+                          shade = 0.45 + 0.65 * lum
+                          target = tuple(max(0, min(255, int(round(c * shade)))) for c in target)
+
+                      px[x, y] = (*target, a)
+
+              im.save(path, "PNG", optimize=True)
+
+          print("Recolored: sick, good, bad, shit")
+          PY
+
+      - name: Commit recolored images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/shared/images/sick.png assets/shared/images/good.png assets/shared/images/bad.png assets/shared/images/shit.png
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+          git commit -m "Gradient judgment rating images"
+          git push
