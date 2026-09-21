@@ -50,11 +50,15 @@ jobs:
             const page = await browser.newPage();
 
             const errors = [];
+            const warnings = [];
+            const logs = [];
             const failed = [];
-            const progress = [];
 
             page.on('console', msg => {
-              if (msg.type() === 'error') errors.push(msg.text());
+              const value = msg.text();
+              if (msg.type() === 'error') errors.push(value);
+              else if (msg.type() === 'warning') warnings.push(value);
+              else if (/asset|load|error|warning|manifest|preload/i.test(value)) logs.push({type: msg.type(), text: value});
             });
 
             page.on('pageerror', err => errors.push('PAGEERROR: ' + err.message));
@@ -71,13 +75,38 @@ jobs:
 
             const body = await page.locator('body').innerText().catch(() => '');
             const source = await page.locator('html').evaluate(el => el.outerHTML.slice(0, 2000));
+            const canvasInfo = await page.evaluate(() => {
+              const canvas = document.querySelector('canvas');
+              if (!canvas) return {exists: false};
+              let sample = null;
+              try {
+                const ctx = canvas.getContext('2d', {willReadFrequently: true});
+                if (ctx) {
+                  const w = canvas.width, h = canvas.height;
+                  const ys = [Math.max(0, h - 30), Math.floor(h / 2), Math.min(h - 1, 350)];
+                  sample = ys.map(y => {
+                    const x = Math.floor(w / 2);
+                    return Array.from(ctx.getImageData(Math.max(0, x - 10), y, 20, 1).data);
+                  });
+                }
+              } catch (_) {}
+              return {exists: true, width: canvas.width, height: canvas.height, sample};
+            });
+            const resourceSummary = await page.evaluate(() => performance.getEntriesByType('resource')
+              .map(e => ({name: e.name, duration: Math.round(e.duration), size: e.transferSize || 0}))
+              .filter(e => e.duration > 1000 || e.size === 0)
+              .slice(-100));
 
             console.log(JSON.stringify({
               url: page.url(),
               title: await page.title(),
               body,
               errors,
+              warnings,
+              logs,
               failedRequests: failed,
+              canvasInfo,
+              resourceSummary,
               progressText: progress,
               sourcePreview: source
             }, null, 2));
