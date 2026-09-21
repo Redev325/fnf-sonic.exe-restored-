@@ -1,0 +1,114 @@
+name: Diagnose pending HTML5 assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout minimal game files
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            index.html
+            PsychEngine.js
+            manifest
+            assets
+            flixel
+            soul-tails.png
+          sparse-checkout-cone-mode: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.52.0
+          npx playwright install --with-deps chromium
+
+      - name: Diagnose pending requests
+        run: |
+          python3 -m http.server 8123 --bind 127.0.0.1 >/tmp/server.log 2>&1 &
+          SERVER_PID=$!
+          trap "kill $SERVER_PID" EXIT
+
+          node <<'NODE'
+          const { chromium } = require('playwright');
+
+          (async () => {
+            const browser = await chromium.launch({headless: true});
+            const page = await browser.newPage();
+            const started = new Map();
+            const finished = new Set();
+            const responses = [];
+            const errors = [];
+            const warnings = [];
+
+            page.on('request', req => {
+              started.set(req.url(), {url: req.url(), at: Date.now(), resourceType: req.resourceType()});
+            });
+
+            const clear = req => {
+              finished.add(req.url());
+              started.delete(req.url());
+            };
+
+            page.on('requestfinished', clear);
+            page.on('requestfailed', req => {
+              clear(req);
+              errors.push({url: req.url(), error: req.failure()?.errorText || 'unknown'});
+            });
+
+            page.on('response', response => {
+              responses.push({
+                url: response.url(),
+                status: response.status(),
+                contentType: response.headers()['content-type'] || '',
+                resourceType: response.request().resourceType()
+              });
+            });
+
+            page.on('console', msg => {
+              if (msg.type() === 'error') errors.push({console: msg.text()});
+              if (msg.type() === 'warning') warnings.push(msg.text());
+            });
+
+            page.on('pageerror', err => errors.push({pageerror: err.message}));
+
+            await page.goto('http://127.0.0.1:8123/', {waitUntil: 'domcontentloaded'});
+            await page.waitForTimeout(30000);
+
+            const pending = [...started.values()]
+              .map(x => ({...x, ageMs: Date.now() - x.at}))
+              .sort((a,b) => b.ageMs - a.ageMs);
+
+            const longResponses = responses.filter(x =>
+              x.status !== 200 ||
+              /text|json|font|audio|video|image/i.test(x.contentType) === false
+            ).slice(-100);
+
+            console.log(JSON.stringify({
+              errors,
+              warnings,
+              pendingCount: pending.length,
+              pending: pending.slice(0, 100),
+              non200OrOddResponses: longResponses,
+              responseCount: responses.length,
+              canvasCount: await page.locator('canvas').count(),
+              canvasSize: await page.locator('canvas').evaluate(c => ({w:c.width,h:c.height})).catch(()=>null)
+            }, null, 2));
+
+            await browser.close();
+            if (errors.length) process.exitCode = 1;
+          })();
+          NODE
