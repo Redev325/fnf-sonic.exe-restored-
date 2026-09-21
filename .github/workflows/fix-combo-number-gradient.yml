@@ -12,23 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'Fix combo number blue gradient')"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Install Pillow
         run: python -m pip install --upgrade pillow
 
-      - name: Restore originals and make gradient fill
+      - name: Restore originals and update sprites
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
           python - <<'PY'
-          from pathlib import Path
+          import base64, io, os, subprocess, requests
           from PIL import Image
-          import subprocess, io
 
-          folder = Path("assets/images")
+          repo = os.environ["REPO"]
+          token = os.environ["GH_TOKEN"]
+          headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
 
+          ORIGINAL = "d067040518f3d7a07ef79208ddf0161d988bd417"
           TOP = (115, 220, 255)
           MID = (45, 145, 255)
           BOTTOM = (20, 65, 190)
@@ -37,11 +37,14 @@ jobs:
           def lerp(a, b, t):
               return tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
-          for path in sorted(folder.glob("num[0-9].png")):
-              raw = subprocess.check_output([
-                  "git", "show",
-                  "d067040518f3d7a07ef79208ddf0161d988bd417:" + str(path)
-              ])
+          for n in range(10):
+              path = f"assets/images/num{n}.png"
+
+              original_url = f"https://raw.githubusercontent.com/{repo}/{ORIGINAL}/{path}"
+              raw = requests.get(original_url, timeout=60).content
+              if not raw.startswith(b"\x89PNG"):
+                  raise RuntimeError(f"Could not download original {path}")
+
               img = Image.open(io.BytesIO(raw)).convert("RGBA")
               px = img.load()
               h = max(1, img.height - 1)
@@ -60,8 +63,6 @@ jobs:
 
                       lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
 
-                      # Bright source pixels are the number face.
-                      # Dark source pixels remain the dark outline.
                       if lum >= 180:
                           nrgb = fill
                       elif lum <= 55:
@@ -72,19 +73,23 @@ jobs:
 
                       px[x, y] = (*nrgb, a)
 
-              img.save(path, optimize=True)
+              out = io.BytesIO()
+              img.save(out, format="PNG", optimize=True)
 
-          print("Fixed:", ", ".join(p.name for p in sorted(folder.glob("num[0-9].png"))))
+              get_url = f"https://api.github.com/repos/{repo}/contents/{path}"
+              current = requests.get(get_url, headers=headers, timeout=60)
+              current.raise_for_status()
+              sha = current.json()["sha"]
+
+              payload = {
+                  "message": f"Fix combo number blue gradient (num{n})",
+                  "content": base64.b64encode(out.getvalue()).decode("ascii"),
+                  "sha": sha,
+                  "branch": "main"
+              }
+
+              put = requests.put(get_url, headers=headers, json=payload, timeout=120)
+              put.raise_for_status()
+
+          print("All combo number sprites corrected.")
           PY
-
-      - name: Commit corrected sprites
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/images/num[0-9].png
-          if git diff --cached --quiet; then
-            echo "No changes."
-            exit 0
-          fi
-          git commit -m "Fix combo number blue gradient"
-          git push
