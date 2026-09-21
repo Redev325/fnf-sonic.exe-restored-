@@ -47,9 +47,24 @@ jobs:
           const original = fs.readFileSync('PsychEngine.js', 'utf8');
           const needle = '__assetLoaded:function(a){this.assetsLoaded++;';
           if (!original.includes(needle)) throw new Error('Compiled AssetLibrary loader signature not found');
-          const instrumented = original.replace(
+          let instrumented = original.replace(
             needle,
             '__assetLoaded:function(a){this.assetsLoaded++;console.log("[ASSET_COMPLETE]",a,this.assetsLoaded,this.assetsTotal);'
+          );
+
+          instrumented = instrumented.replace(
+            'start:function(){this.ready=!0;wa.get_current().get_loaderInfo().__complete()',
+            'start:function(){console.log("[WI_START]");this.ready=!0;wa.get_current().get_loaderInfo().__complete()'
+          );
+
+          instrumented = instrumented.replace(
+            'rc.start=function(a){try{P.main()',
+            'rc.start=function(a){console.log("[RC_START]");try{P.main()'
+          );
+
+          instrumented = instrumented.replace(
+            'onLoaded:function(){this._loaded=!0;this._percent=1}',
+            'onLoaded:function(){console.log("[FLX_LOADED]");this._loaded=!0;this._percent=1}'
           );
           fs.writeFileSync('PsychEngine.instrumented.js', instrumented);
           fs.renameSync('PsychEngine.js', 'PsychEngine.original.js');
