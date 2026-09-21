@@ -1,0 +1,89 @@
+name: Diagnose HTML5 preloader
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout minimal game files
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            index.html
+            PsychEngine.js
+            manifest
+            assets
+            flixel
+            soul-tails.png
+          sparse-checkout-cone-mode: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.52.0
+          npx playwright install --with-deps chromium
+
+      - name: Run browser diagnosis
+        run: |
+          python3 -m http.server 8123 --bind 127.0.0.1 >/tmp/server.log 2>&1 &
+          SERVER_PID=$!
+          trap "kill $SERVER_PID" EXIT
+
+          node <<'NODE'
+          const { chromium } = require('playwright');
+
+          (async () => {
+            const browser = await chromium.launch({headless: true});
+            const page = await browser.newPage();
+
+            const errors = [];
+            const failed = [];
+            const progress = [];
+
+            page.on('console', msg => {
+              if (msg.type() === 'error') errors.push(msg.text());
+            });
+
+            page.on('pageerror', err => errors.push('PAGEERROR: ' + err.message));
+
+            page.on('requestfailed', req => {
+              failed.push({
+                url: req.url(),
+                error: req.failure()?.errorText || 'unknown'
+              });
+            });
+
+            await page.goto('http://127.0.0.1:8123/', {waitUntil: 'domcontentloaded'});
+            await page.waitForTimeout(30000);
+
+            const body = await page.locator('body').innerText().catch(() => '');
+            const source = await page.locator('html').evaluate(el => el.outerHTML.slice(0, 2000));
+
+            console.log(JSON.stringify({
+              url: page.url(),
+              title: await page.title(),
+              body,
+              errors,
+              failedRequests: failed,
+              progressText: progress,
+              sourcePreview: source
+            }, null, 2));
+
+            await browser.close();
+
+            if (errors.length || failed.length) process.exitCode = 1;
+          })();
+          NODE
