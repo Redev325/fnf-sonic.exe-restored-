@@ -1,0 +1,90 @@
+name: Package Sonic.exe Restored HTML5
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "PsychEngine.js"
+      - "assets/**"
+      - "flixel/**"
+      - "manifest/**"
+      - "favicon.png"
+      - "soul-tails.png"
+      - ".nojekyll"
+      - ".github/workflows/package-html5-export.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package-html5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout web-export files
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            index.html
+            PsychEngine.js
+            assets
+            flixel
+            manifest
+            favicon.png
+            soul-tails.png
+            .nojekyll
+          sparse-checkout-cone-mode: true
+
+      - name: Verify the HTML5 export
+        run: |
+          set -eu
+          test -s index.html
+          test -s PsychEngine.js
+          test -d assets
+          test -d flixel
+          test -d manifest
+          grep -q 'PsychEngine.js' index.html
+          grep -q 'lime.embed' index.html
+          printf 'HTML entry page and compiled engine were found.\n'
+          printf 'Asset files: '
+          find assets -type f | wc -l
+          printf 'Flixel support files: '
+          find flixel -type f | wc -l
+
+      - name: Assemble downloadable HTML5 bundle
+        run: |
+          set -eu
+          OUT="dist/sonic-exe-restored-html5"
+          mkdir -p "$OUT"
+          cp index.html PsychEngine.js "$OUT/"
+          cp -R assets flixel manifest "$OUT/"
+          if [ -f favicon.png ]; then cp favicon.png "$OUT/"; fi
+          if [ -f soul-tails.png ]; then cp soul-tails.png "$OUT/"; fi
+          if [ -f .nojekyll ]; then cp .nojekyll "$OUT/"; fi
+          cat > "$OUT/README-HTML5.txt" <<'TXT'
+          Sonic.exe Restored — HTML5 export
+
+          Open index.html through a static web server or upload this entire
+          folder to a static web host. Keep PsychEngine.js, assets/, flixel/,
+          and manifest/ beside index.html in the same folder.
+
+          This is a packaged copy of the repository's existing HTML5 export.
+          It is not a newly compiled Haxe source build, because this repository
+          contains the browser export rather than the original Haxe project.
+          The CNAME file is intentionally excluded so this download does not
+          automatically claim or configure a custom domain.
+          TXT
+          echo "Bundle files: $(find "$OUT" -type f | wc -l)"
+          du -sh "$OUT"
+
+      - name: Upload downloadable HTML5 bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonic-exe-restored-html5
+          path: dist/sonic-exe-restored-html5/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
